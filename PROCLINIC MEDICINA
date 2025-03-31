@@ -1,18 +1,9 @@
-if incoming_msg.lower() == "你好" or incoming_msg.lower() == "HOLA":
-    msg.body("你好，欢迎来到PROCLINIC 医院！\n请选择一个选项：\n1. 预约挂号\n2. 诊所信息\n3. 与人工智能聊天\n4. 查看医生列表\n5. 诊所联系方式")
+if incoming_msg.lower() in ["你好", "hola"]:msg.body("你好，欢迎来到 PROCLINIC 医院！\n请选择一个选项：\n1. 预约挂号\n2. 诊所信息\n3. 与人工智能聊天\n4. 查看医生列表\n5. 诊所联系方式")
     user_states[user_number] = "menu"
 elif state == "menu":
-    if incoming_msg == "1":
-        msg.body("请发送您的姓名和您的连系电话 Deja ，例如：张伟，11123456")
-        user_states[user_number] = "booking"
-    elif incoming_msg == "2":
-        msg.body("我们位于 ACOYTE 761，每周一到周五 12:00 - 17:00 看诊。\n如需更多信息，请打座机电话，有我们的秘书为您祥细的解答。")
-    elif incoming_msg == "3":
-        msg.body("您现在可以与人工智能聊天，请输入您的问题：")
-        user_states[user_number] = "chat"
-    elif incoming_msg == "4":
-        msg.body("我们的医生包括：\n- 朱医生（内科，风湿免疫）\n- Gandini 医生（妇科）\n- 柳医生（牙科) \n- Vatulian 医生（B超）”
-    elif incoming_msg == "5":
-        msg.body("联系电话 1161027729")
-    else:
-        msg.body("无效的选项，请输入 '你好
+if incoming_msg == "1": msg.body("请发送您的姓名和您的连系电话，例如：张伟，11123456") user_states[user_number] = "booking"
+elif incoming_msg == "2": msg.body("我们位于 ACOYTE 761，每周一到周五 12:00 - 17:00 看诊。\n如需更多信息，请打座机电话，有我们的秘书为您祥细的解答。")
+elif incoming_msg == "3": msg.body("您现在可以与人工智能聊天，请输入您的问题：") user_states[user_number] = "chat"
+elif incoming_msg == "4": msg.body("我们的医生包括：\n- 朱医生（内科，风湿免疫）\n- Gandini 医生（妇科）\n- 柳医生（牙科）\n- Vatulian 医生（B超）")
+elif incoming_msg == "5": msg.body("联系电话：1161027729")
+else: msg.body("无效的选项，请输入 '你好' 重新开始。")
